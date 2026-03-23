@@ -1,0 +1,5 @@
+Serverless Task app
+
+S3 URL:http://ksmith-aws-task-app-2026.s3-website-us-east-1.amazonaws.com
+API URL: https://f3kl1bs4bi.execute-api.us-east-1.amazonaws.com
+

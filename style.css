@@ -1,0 +1,28 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background: #f4f4f4;
+    padding: 30px;
+    color: black;
+}
+
+h1 {
+    color: #333;
+}
+
+input {
+    padding: 10px;
+    width: 200px;
+    color: black;
+}
+
+button {
+    padding: 10px;
+    color: black;
+}
+
+li {
+    margin-top: 10px;
+    color: black;
+    font-weight: bold;
+    background: white;
+}
