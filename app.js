@@ -16,15 +16,27 @@ async function loadTasks() {
     tasks.forEach(function (task) {
       const li = document.createElement("li");
 
-      const text = document.createTextNode(task.taskName + " ");
-      li.appendChild(text);
+      const textSpan = document.createElement("span");
+      textSpan.textContent = task.taskName;
+      textSpan.className = "task-text";
+
+      if (task.completed) {
+        textSpan.classList.add("completed");
+      }
+
+      textSpan.onclick = function () {
+        console.log("CLICKED", task.taskId, task.completed);
+        toggleTask(task.taskId, !task.completed);
+      };
 
       const deleteBtn = document.createElement("button");
       deleteBtn.textContent = "Delete";
+      deleteBtn.className = "delete-btn";
       deleteBtn.onclick = function () {
         deleteTask(task.taskId);
       };
 
+      li.appendChild(textSpan);
       li.appendChild(deleteBtn);
       taskList.appendChild(li);
     });
@@ -53,6 +65,26 @@ async function addTask() {
     loadTasks();
   } catch (error) {
     console.error("Add error:", error);
+  }
+}
+
+async function toggleTask(taskId, completed) {
+  try {
+    const response = await fetch(API_URL, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        taskId: taskId,
+        completed: completed
+      })
+    });
+
+    console.log("TOGGLE:", await response.text());
+    loadTasks();
+  } catch (error) {
+    console.error("Toggle error:", error);
   }
 }
 
