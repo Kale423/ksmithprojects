@@ -1,3 +1,4 @@
+<img width="1536" height="1024" alt="75D80649-9EBA-4DFB-913A-F69D5B0F20C0" src="https://github.com/user-attachments/assets/b9b7cbea-f800-4938-b525-65d43a466fe2" />
 # AWS Serverless Task App
 
 ## Overview
